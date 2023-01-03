@@ -5,7 +5,12 @@ import ApolloClient from 'apollo-client';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import { ApolloProvider } from 'react-apollo';
 
-const client = new ApolloClient({});
+const client = new ApolloClient({
+  // takes every piece of data that is fetched from Apollo Client and the API.
+  // the result of this function is used to identify that 
+  // object in the store (apollo client) - ids must be unique
+  dataIdFromObject: o => o.id
+});
 
 // Custom Components
 import App from './components/App';
